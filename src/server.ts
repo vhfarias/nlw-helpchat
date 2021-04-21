@@ -1,27 +1,12 @@
 import express from 'express';
 
+import "./database"; //o Node reconhece automaticamente o arquivo "index.*" contido na pasta e carrega
+import { routes } from "./routes";
+
 const app = express();
 
-/**
-* GET => buscas
-* POST => criação
-* PUT => alteração
-* DELETE => exclusão
-* PATCH => alterar informação específica
-*/
+app.use(express.json());
 
-app.get("/", (request, response) => {
-  return response.json({
-    "message": "Olar NLW05!"
-  })
-});
-
-app.post("/", (request, response) => {
-  return response.json({
-    "message": "Usuário salvo com sucesso"
-  })
-});
-
-
+app.use(routes);
 
 app.listen(3333, () => console.log("Server is running on port 3333"));
