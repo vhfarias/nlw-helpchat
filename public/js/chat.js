@@ -4,6 +4,7 @@ let socket = null;
 
 document.querySelector("#start_chat").addEventListener("click", (event) => {
   socket = io();
+  in_support = true;
 
   const chat_help = document.getElementById("chat_help");
   chat_help.style.display = "none";

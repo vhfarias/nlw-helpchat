@@ -15,7 +15,7 @@
   <div class="chat chat_support" id="chat_in_support">
     <div class="in_support_header">
       <span>Em suporte ... </span>
-      <div class="icon_close" onclick="closeChat();">
+      <div class="icon_close" onclick="closeChatSupport();">
         <img src="/images/close.png" />
       </div>
     </div>
@@ -86,6 +86,8 @@
 <script>
   onLoad();
   const chat = document.getElementById("chat_help");
+  const chat_support = document.getElementById("chat_in_support");
+  let in_support = false;
 
   function onLoad() {
     fetch("http://localhost:3333/settings/admin").then((result) =>
@@ -99,11 +101,19 @@
   }
 
   function openChat() {
-    chat.style.display = "block";
+    if (!in_support) {
+      chat.style.display = "block";
+    } else {
+      chat_support.style.display = "block";
+    }
   }
 
   function closeChat() {
     chat.style.display = "none";
+  }
+
+  function closeChatSupport() {
+    chat_support.style.display = "none";
   }
 
   function keyUpTextHelp(event) {
