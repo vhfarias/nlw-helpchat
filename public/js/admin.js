@@ -89,6 +89,9 @@ function sendMessage(id) {
   divMessages.appendChild(createDiv);
 
   text.value = "";
+
+  //rolagem para a mensagem mais recente
+  divMessages.scrollTop = divMessages.scrollHeight;
 }
 
 socket.on("admin_receive_message", (data) => {
@@ -106,4 +109,7 @@ socket.on("admin_receive_message", (data) => {
   ).format("DD/MM/YYYY HH:mm:ss")}</span>`;
 
   divMessages.appendChild(createDiv);
+
+  //rolagem para a mensagem mais recente
+  divMessages.scrollTop = divMessages.scrollHeight;
 });

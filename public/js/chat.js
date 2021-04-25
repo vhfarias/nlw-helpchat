@@ -60,6 +60,10 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
     })
 
     document.getElementById("messages").innerHTML += rendered;
+
+    //rolagem para a mensagem mais recente
+    const messageBox = document.querySelector(".text_support");
+    messageBox.scrollTop = messageBox.scrollHeight;
   });
 
 });
@@ -81,4 +85,9 @@ document.querySelector("#send_message_button").addEventListener("click", (event)
   });
 
   document.getElementById("messages").innerHTML += rendered;
+  text.value = "";
+
+  //rolagem para a mensagem mais recente
+  const messageBox = document.querySelector(".text_support");
+  messageBox.scrollTop = messageBox.scrollHeight;
 })
